@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 });
 
 // === 15-day cycle helpers (UTC) ===
-const CYCLE_START_UTC = Date.UTC(2024, 6, 14, 0, 0, 0); // July 14, 2024 00:00 UTC
+const CYCLE_START_UTC = Date.UTC(2025, 6, 14, 0, 0, 0); // July 14, 2024 00:00 UTC
 const CYCLE_MS = 15 * 24 * 60 * 60 * 1000; // 15 days in ms
 
 function getCycleBounds(date = new Date()) {
