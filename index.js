@@ -88,11 +88,9 @@ setInterval(fetchAndCacheData, 5 * 60 * 1000); // every 5 minutes
 
 // === Routes ===
 app.get("/leaderboard/top14", (req, res) => {
-  res.json({
-    period: getCycleBounds(),
-    leaderboard: cachedData
-  });
+  res.json(cachedData);
 });
+
 
 app.get("/leaderboard/prev", async (req, res) => {
   try {
@@ -119,10 +117,8 @@ app.get("/leaderboard/prev", async (req, res) => {
     console.log(
       `[🟡] Served PREV cycle ${toYMD(start)} → ${toYMD(endInclusive)}`
     );
-    res.json({
-      period: { start: toYMD(start), end: toYMD(endInclusive) },
-      leaderboard: processed
-    });
+res.json(processed);
+
   } catch (err) {
     console.error("[❌] Failed to fetch previous leaderboard:", err.message);
     res.status(500).json({ error: "Failed to fetch previous leaderboard data." });
